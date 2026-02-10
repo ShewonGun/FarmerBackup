@@ -9,7 +9,7 @@ import { authenticate, isSelfOrAdmin } from "../../middlewares/protect.js";
 
 const router = express.Router();
 
-// Progress routes - User can access their own, admin can access any
+// Progress routes 
 router.post("/:userId/quiz/:quizId/attempt", authenticate, isSelfOrAdmin, submitQuizAttempt);
 router.get("/:userId/quiz/:quizId/attempts", authenticate, isSelfOrAdmin, getUserQuizAttempts);
 router.get("/progress/:attemptId", authenticate, getQuizAttemptById);

@@ -9,7 +9,7 @@ import { authenticate, adminOnly } from "../../middlewares/protect.js";
 
 const router = express.Router();
 
-// Question routes - Admin only for create, update, delete
+// Question routes
 router.post("/quiz/:quizId/question", authenticate, adminOnly, addQuestion);
 router.get("/quiz/:quizId/questions", authenticate, getQuestionsByQuiz);
 router.put("/question/:id", authenticate, adminOnly, updateQuestion);

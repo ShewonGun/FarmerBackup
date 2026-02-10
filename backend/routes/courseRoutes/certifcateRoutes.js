@@ -8,7 +8,7 @@ import { authenticate, isSelfOrAdmin } from "../../middlewares/protect.js";
 
 const router = express.Router();
 
-// Certificate routes - User can access their own, admin can access any
+// Certificate routes 
 router.post("/user/:userId/course/:courseId/certificate", authenticate, isSelfOrAdmin, generateCertificate);
 router.get("/user/:userId/course/:courseId/certificate", authenticate, isSelfOrAdmin, getCertificate);
 router.get("/user/:userId/certificates", authenticate, isSelfOrAdmin, getUserCertificates);

@@ -10,7 +10,7 @@ import { authenticate, adminOnly } from "../../middlewares/protect.js";
 
 const router = express.Router();
 
-// Lesson routes - Admin only for create, update, delete
+// Lesson routes 
 router.get("/course/:courseId/lessons", authenticate, getLessonsByCourse);
 router.post("/course/:courseId/lessons", authenticate, adminOnly, addLesson);
 router.get("/lessons/:id", authenticate, getLessonById);

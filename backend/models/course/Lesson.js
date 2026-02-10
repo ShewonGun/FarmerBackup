@@ -5,6 +5,7 @@ const lessonSchema = new mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     assetUrl: { type: String },
+    youtubeUrl: { type: String },
     isQuizAvailable: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now }
 });

@@ -17,7 +17,7 @@ const router = express.Router();
 
 // Course routes - Admin only for create, update, delete
 router.post("/addCourse", authenticate, adminOnly, addCourse);
-router.get("/course", authenticate, getAllCourses);
+router.get("/course", getAllCourses);
 router.get("/course/:id", authenticate, getCourseById);
 router.put("/course/:id", authenticate, adminOnly, updateCourse);
 router.delete("/course/:id", authenticate, adminOnly, deleteCourse);

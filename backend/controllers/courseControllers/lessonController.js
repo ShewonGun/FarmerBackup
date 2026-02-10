@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 export const addLesson = async (req, res) => {
     try {
         const { courseId } = req.params;
-        const { title, content, assetUrl } = req.body;
+        const { title, content, assetUrl, youtubeUrl } = req.body;
         
         if (!mongoose.Types.ObjectId.isValid(courseId)) {
             return res.status(400).json({ success: false, message: "Invalid course ID" });
@@ -25,7 +25,8 @@ export const addLesson = async (req, res) => {
             course: courseId,
             title,
             content,
-            assetUrl
+            assetUrl,
+            youtubeUrl
         });
         await lesson.save();
         
@@ -77,7 +78,7 @@ export const getLessonById = async (req, res) => {
 export const updateLesson = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, content, assetUrl } = req.body;
+        const { title, content, assetUrl, youtubeUrl } = req.body;
         
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ success: false, message: "Invalid lesson ID" });
@@ -85,7 +86,7 @@ export const updateLesson = async (req, res) => {
         
         const lesson = await Lesson.findByIdAndUpdate(
             id,
-            { title, content, assetUrl },
+            { title, content, assetUrl, youtubeUrl },
             { new: true, runValidators: true }
         );
         if (!lesson) {
